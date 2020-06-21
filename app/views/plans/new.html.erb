@@ -1,2 +1,18 @@
-<h1>Plans#new</h1>
-<p>Find me in app/views/plans/new.html.erb</p>
+<h1>プラン作成</h1>
+
+<%= form_with model: @plan, local: true do |f| %>
+  <div>
+    <%= f.label :area %>
+    <%= f.select :area, { 北海道: "北海道", 東北: "東北", 甲信越: "甲信越", 関東: "関東", 東海: "東海", 北陸: "北陸", 関西: "関西", 山陰山陽: "山陰山陽", 四国: "四国", 九州: "九州", 沖縄: "沖縄" },
+                      prompt: "目的地を選択してください" %>
+  </div>
+  <div>
+    <%= f.label :impression %>
+    <%= f.text_area :impression %>
+  </div>
+  <div>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+  <%= f.submit nil %>
+<% end %>
