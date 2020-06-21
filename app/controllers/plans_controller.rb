@@ -25,6 +25,7 @@ class PlansController < ApplicationController
   private
 
   def plan_params
-    params.require(:plan).permit(:area, :impression, :image, places_attributes: [:id, :name, :latitude, :longitude, :image, :explanation, :_destroy])
+    params.require(:plan).permit(:area, :impression, :image, :image_cache,
+                                  places_attributes: [:id, :name, :latitude, :longitude, :image, :image_cache, :explanation, :_destroy])
   end
 end
