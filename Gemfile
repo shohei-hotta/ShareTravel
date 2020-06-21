@@ -17,6 +17,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
+  # デバッグ関連
   gem 'binding_of_caller'
   gem 'better_errors'
 end
@@ -35,3 +37,7 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# 画像アップロード関連
+gem 'carrierwave'
+gem 'mini_magick'
