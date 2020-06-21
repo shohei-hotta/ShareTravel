@@ -20,5 +20,25 @@
     <%= f.label :image %>
     <%= f.file_field :image %>
   </div>
+  <% n = 0 %>
+  <%= f.fields_for :places do |place_f| %>
+    <h3>経由地<%= n += 1 %></h3>
+    <div>
+      <%= place_f.label :name %>
+      <%= place_f.text_field :name %>
+    </div>
+    <div>
+      <%= place_f.label :image %>
+      <%= place_f.file_field :image %>
+    </div>
+    <div>
+      <%= place_f.label :explanation %>
+      <%= place_f.text_area :explanation %>
+    </div>
+    <% if @plan.persisted? %>
+      <%= place_f.check_box :_destroy %>
+      <%= place_f.label :_destroy, "削除" %>
+    <% end %>
+  <% end %>
   <%= f.submit nil %>
 <% end %>

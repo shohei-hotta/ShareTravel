@@ -1,6 +1,7 @@
 class PlansController < ApplicationController
   def new
     @plan = Plan.new
+    2.times { @plan.places.build }
   end
 
   def create
@@ -24,6 +25,6 @@ class PlansController < ApplicationController
   private
 
   def plan_params
-    params.require(:plan).permit(:area, :impression, :image)
+    params.require(:plan).permit(:area, :impression, :image, places_attributes: [:id, :name, :latitude, :longitude, :image, :explanation, :_destroy])
   end
 end
