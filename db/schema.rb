@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_16_061133) do
+ActiveRecord::Schema.define(version: 2020_06_21_044626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "places", force: :cascade do |t|
+    t.string "name", null: false
+    t.float "latitude"
+    t.float "longitude"
+    t.string "image"
+    t.string "explanation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "plan_id"
+    t.index ["plan_id"], name: "index_places_on_plan_id"
+  end
 
   create_table "plans", force: :cascade do |t|
     t.integer "area", null: false
@@ -24,4 +36,5 @@ ActiveRecord::Schema.define(version: 2020_06_16_061133) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "places", "plans"
 end
