@@ -1,5 +1,11 @@
 <h1>プラン作成</h1>
 
+<% if @plan.errors.present? %>
+  <% @plan.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+<% end %>
+
 <%= form_with model: @plan, local: true do |f| %>
   <div>
     <%= f.label :area %>
