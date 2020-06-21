@@ -16,6 +16,7 @@ class PlansController < ApplicationController
   end
 
   def index
+    @plans = Plan.all
   end
 
   def show
