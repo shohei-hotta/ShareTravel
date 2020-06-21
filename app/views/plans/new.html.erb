@@ -12,14 +12,6 @@
     <%= f.select :area, { 北海道: "北海道", 東北: "東北", 甲信越: "甲信越", 関東: "関東", 東海: "東海", 北陸: "北陸", 関西: "関西", 山陰山陽: "山陰山陽", 四国: "四国", 九州: "九州", 沖縄: "沖縄" },
                       prompt: "目的地を選択してください" %>
   </div>
-  <div>
-    <%= f.label :impression %>
-    <%= f.text_area :impression %>
-  </div>
-  <div>
-    <%= f.label :image %>
-    <%= f.file_field :image %>
-  </div>
   <% n = 0 %>
   <%= f.fields_for :places do |place_f| %>
     <h3>経由地<%= n += 1 %></h3>
@@ -40,5 +32,17 @@
       <%= place_f.label :_destroy, "削除" %>
     <% end %>
   <% end %>
+  <div>
+    <%= f.label :impression %>
+    <%= f.text_area :impression %>
+  </div>
+  <div>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+  <div>
+    <%= f.label :published %>
+    <%= f.check_box :published, {}, true, false %>
+  </div>
   <%= f.submit nil %>
 <% end %>
