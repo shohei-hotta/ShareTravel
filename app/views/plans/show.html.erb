@@ -1,2 +1,25 @@
-<h1>Plans#show</h1>
-<p>Find me in app/views/plans/show.html.erb</p>
+<h1>プラン詳細</h1>
+
+<%= link_to "プラン編集", edit_plan_path %>
+
+<div>
+  <%= Plan.human_attribute_name(:area) %>：<%= @plan.area %>
+</div>
+
+<% n = 0 %>
+<% @places.each do |place| %>
+  <div>
+    <h4>経由地<%= n += 1 %></h4>
+    <p><%= Place.human_attribute_name(:name) %>:<%= place.name %></p>
+  </div>
+<% end %>
+
+<div>
+  <%= Plan.human_attribute_name(:impression) %>
+  <%= @plan.impression %>
+</div>
+
+<div>
+  <%= Plan.human_attribute_name(:image) %>
+  <%= image_tag @plan.image.url unless @plan.image.url.blank? %>
+</div>

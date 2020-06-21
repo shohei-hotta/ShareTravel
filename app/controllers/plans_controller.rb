@@ -17,6 +17,8 @@ class PlansController < ApplicationController
   end
 
   def show
+    @plan = Plan.find(params[:id])
+    @places = @plan.places
   end
 
   def edit
