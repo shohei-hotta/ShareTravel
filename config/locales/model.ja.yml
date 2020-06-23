@@ -1,0 +1,23 @@
+ja:
+  activerecord:
+    models:
+      plan: プラン
+      place: 経由地
+    attributes:
+      plan:
+        id: ID
+        area: 目的エリア
+        impression: 感想
+        image: 画像
+        published: 公開状況
+        created_at: 作成日時
+        updated_at: 更新日時
+      place:
+        id: ID
+        name: 経由地名
+        latitude: 緯度
+        longitude: 経度
+        image: 画像
+        explanation: 補足
+        created_at: 作成日時
+        updated_at: 更新日時

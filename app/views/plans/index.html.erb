@@ -1,0 +1,9 @@
+<h1>プラン一覧</h1>
+
+<% @plans.each do |plan| %>
+  <div>
+    <%= Plan.human_attribute_name(:area) %>：<%= plan.area %>
+    最初の経由地：<%= plan.places.first.name %>
+    最後の経由地：<%= plan.places.last.name %>
+  </div>
+<% end %>
